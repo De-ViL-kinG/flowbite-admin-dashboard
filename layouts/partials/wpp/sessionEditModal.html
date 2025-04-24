@@ -1,0 +1,70 @@
+<!-- Edit session modal -->
+<div id="editSessionModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 items-center justify-center hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative w-full max-w-md max-h-full">
+    <!-- Modal content -->
+    <form id="edit-session-form" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <!-- Header -->
+      <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600 border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+          Редактировать сессию
+        </h3>
+        <button type="button" class="text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="editSessionModal">
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+          </svg>
+          <span class="sr-only">Закрыть</span>
+        </button>
+      </div>
+
+      <!-- Body -->
+      <div class="p-6 space-y-4">
+        <div>
+          <label for="edit-session-id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID</label>
+          <input 
+              type="text" 
+              id="edit-session-id" 
+              disabled
+              placeholder="*id*"
+              class="bg-gray-200 text-gray-500 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white" />
+        </div>
+        <div>
+          <label for="edit-session-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Название</label>
+          <input 
+              type="text" 
+              id="edit-session-name"
+              placeholder="*someSessionName*"
+              class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white" />
+        </div>
+        <div>
+          <label for="edit-session-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
+          <textarea 
+              id="edit-session-desc" 
+              rows="3"
+              placeholder="*Описание*"
+              class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"></textarea>
+        </div>
+        <div>
+          <label for="edit-session-status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Статус</label>
+          <input 
+              id="edit-session-status"
+              placeholder="*ожидание*"
+              type="text"
+              class="bg-gray-50 border border-gray-300 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
+              disabled
+          >
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="flex items-center justify-end p-6 border-t border-gray-200 rounded-b dark:border-gray-600">
+        <button  
+          id="edit-session-saveBtn"
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Сохранить изменения
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+---
+title: Управление WhatsApp-сессиями
+description: Создание и управление WPPConnect-сессиями
+layout: dashboard
+group: wpp
+---
+
+<!-- Заголовок -->
+<div class="p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+  <div class="mb-4">
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Сессии WhatsApp</h1>
+    <p class="text-sm text-gray-500 dark:text-gray-400">Управление активными сессиями WPPConnect</p>
+  </div>
+
+  <div class="flex justify-between mb-4">
+    <button type="button"
+      class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      data-modal-target="drawer-create-session" data-modal-toggle="drawer-create-session">
+      ➕ Создать сессию
+    </button>
+  </div>
+
+  <!-- Таблица -->
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th class="px-4 py-3">ID</th>
+          <th class="px-4 py-3">Название</th>
+          <th class="px-4 py-3">Описание</th>
+          <th class="px-4 py-3">Сессия</th>
+          <th class="px-4 py-3">Подключение</th>
+          <th class="px-4 py-3">Действия</th>
+        </tr>
+      </thead>
+      <tbody id="wpp-session-list" class="bg-white divide-y dark:bg-gray-800 dark:divide-gray-700">
+        <!-- Сессии будут вставлены JS -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Модалка: Создание сессии -->
+<div id="drawer-create-session"
+  class="hidden fixed top-0 left-0 right-0 z-50 items-center justify-center w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 max-h-full h-[calc(100%-1rem)]">
+  <div class="relative w-full max-w-md max-h-full">
+    <div class="bg-white rounded-lg shadow dark:bg-gray-700">
+      <div class="flex justify-between p-4 border-b dark:border-gray-600">
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Новая сессия</h3>
+        <button type="button" data-modal-hide="drawer-create-session"
+          class="text-gray-400 hover:text-gray-900 dark:hover:text-white">
+          ✖
+        </button>
+      </div>
+      <div class="p-4 md:p-5">
+        <form class="space-y-4" action="#" id="create-wpp-form">
+          <div>
+            <label for="wpp-name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Имя
+              сессии</label>
+            <input type="text" name="name" id="wpp-name"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              placeholder="someNameForSession" required />
+          </div>
+          <div>
+            <label for="wpp-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
+            <textarea id="wpp-desc" name="description" rows="3" placeholder="Можно ввести номер, примечание, метку и т.д."
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+              required></textarea>
+          </div>
+          <button type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Добавить
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Модалка: QR-код -->
+<div id="qrModal" tabindex="-1" aria-hidden="true"
+  class="hidden fixed inset-0 z-50 overflow-y-auto overflow-x-hidden flex justify-center items-center bg-black/50">
+  <div class="relative w-full max-w-md p-4">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700 p-6">
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">QR-код авторизации</h3>
+      <div id="qr-status" class="text-sm text-gray-500 dark:text-gray-400 mb-3">Ожидание QR-кода...</div>
+      <img id="qr-image" src="" alt="QR Code"
+        class="w-full h-auto hidden rounded border border-gray-300 dark:border-gray-600" />
+      <div class="text-center mt-4">
+        <button type="button" id="qr-close-btn"
+          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Закрыть
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Скрипт -->
+<script type="module" src="/js/modules/wpp/sessions.js?time={{ now.Unix }}"></script>

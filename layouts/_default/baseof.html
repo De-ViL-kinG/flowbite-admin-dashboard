@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="ru" class="dark">
   <head>
     {{ partial "header" . }}
   </head>
@@ -10,5 +10,7 @@
     {{ end }}
 
     {{ partial "scripts" . }}
+    <div id="theme-toggle"></div>
+    <div id="alerts-container" class="fixed top-5 right-5 z-50 space-y-3"></div>
   </body>
 </html>

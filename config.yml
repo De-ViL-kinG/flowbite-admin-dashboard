@@ -1,12 +1,13 @@
-languageCode:           "en"
-title:                  "Flowbite Admin Dashboard"
+languageCode:           "ru"
+title:                  "project X"
 # baseURL:                "http://localhost:1313"
-baseURL:                "https://flowbite-admin-dashboard.vercel.app/"
+# baseURL:                "https://flowbite-admin-dashboard.vercel.app/"
+baseUrl:                "http://projectx:1313"
 enableInlineShortcodes: true
 canonifyURLs: true
 
 params:
-  homepage: "https://flowbite.com/"
+  homepage: "http://projectx:1313"
   authors: Themesberg
   social_image_path: images/og-image.png
 
@@ -26,6 +27,6 @@ buildFuture:            true
 
 enableRobotsTXT:        true
 metaDataFormat:         "yaml"
-disableKinds:           ["404", "taxonomy", "taxonomyTerm", "RSS"]
+disableKinds:           ["404", "taxonomy", "RSS"]
 
 publishDir:             "_gh_pages"
