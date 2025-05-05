@@ -14,19 +14,22 @@ async function loadRaffles() {
 
         // Сортировка по дате начала
         const raffles = json.data.sort((a, b) => new Date(a.start_datetime) - new Date(b.start_datetime))
-
+      
         raffles.forEach(raffle => {
             const card = document.createElement("div")
             card.className = "raffle-card flex flex-col p-6 mx-auto max-w-lg text-center text-gray-900 bg-white rounded-lg border border-gray-100 shadow dark:border-gray-600 xl:p-8 dark:bg-gray-800 dark:text-white"
-
+          
+            var start = new Date();
+          
             card.innerHTML = `
-        <h3 class="mb-4 text-2xl font-semibold">${raffle.title}</h3>
-        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">${raffle.announcement || "Описание отсутствует"}</p>
+        <h3 class="mb-4 text-2xl font-semibold">${raffle.about.title}</h3>
+        <p class="font-light text-gray-500 sm:text-lg dark:text-gray-400">${raffle.about.description || "Описание отсутствует"}</p>
         <div class="flex justify-center items-baseline my-4">
           <span class="mr-2 text-md font-bold">Начало:</span>
-          <span class="text-sm text-gray-700 dark:text-gray-300">${new Date(raffle.start_datetime).toLocaleString()}</span>
+          <span class="text-sm text-gray-700 dark:text-gray-300">${raffle.settings.start_date} ${raffle.settings.start_time}</span>
         </div>
-        <div class="text-sm mb-3">Платформа: <span class="font-semibold">${raffle.platform}</span></div>
+        <div class="text-sm mb-3">Платформа: <span class="font-semibold">${raffle.platform.type}</span></div>
+        <div class="text-sm mb-3">СТатус: <span class="font-semibold">${raffle.status}</span></div>
         <ul role="list" class="mb-4 space-y-2 text-left text-sm">
           ${Array.isArray(raffle.prizes) ? raffle.prizes.map(p => `
             <li class="flex items-center space-x-2">

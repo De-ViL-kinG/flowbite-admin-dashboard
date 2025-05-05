@@ -34,7 +34,7 @@ async function loadRolesPermissions() {
     })
 
   } catch (err) {
-    showMessage('danger', err.message || "Ошибка получения ролей")
+    showMessage('error', err.message || "Ошибка получения ролей")
     console.error(err)
   }
 }
@@ -143,16 +143,16 @@ async function openPermissionsModal(roleId) {
           hideModal("permissionsModal")
           loadRolesPermissions()
         } else {
-          showMessage("danger", result.message || "Ошибка при сохранении")
+          showMessage("error", result.message || "Ошибка при сохранении")
         }
       } catch (err) {
         console.error(err)
-        showMessage("danger", "Ошибка соединения с сервером")
+        showMessage("error", "Ошибка соединения с сервером")
       }
     }
 
   } catch (err) {
     console.error(err)
-    showMessage("danger", err.message || "Ошибка при открытии модального окна")
+    showMessage("error", err.message || "Ошибка при открытии модального окна")
   }
 }

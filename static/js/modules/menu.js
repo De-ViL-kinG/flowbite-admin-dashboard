@@ -97,7 +97,7 @@ function addSidebarChild(item) {
     const li = document.createElement('li')
     const a = document.createElement('a')
     a.href = item.to || '#'
-    a.className = `flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ${path === item.to ? 'bg-gray-100 dark:bg-gray-700' : ''
+    a.className = `flex justify-end p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 ${path === item.to ? 'bg-gray-100 dark:bg-gray-700' : ''
         }`
     a.innerText = item.name
     li.appendChild(a)

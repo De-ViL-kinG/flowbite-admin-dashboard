@@ -1,0 +1,282 @@
+---
+title: Создание розыгрыша
+description: Форма создания розыгрыша
+layout: dashboard
+group: raffles
+---
+<style src="/css/tailwind.config1.css"></style>
+
+<section class="bg-white py-8 antialiased dark:bg-gray-900 md:py-16">
+    <form action="#" class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        
+
+        <div class="mt-6 sm:mt-8 lg:flex lg:items-start lg:gap-12 xl:gap-16">
+            <div class="min-w-0 flex-1 space-y-8">
+                <div class="space-y-4">
+                    <!-- 📦 Текстовая информация -->
+                    <hr />
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Текстовая информация</h2>
+                
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+                
+                        <!-- 🏷 Название розыгрыша -->
+                        <div class="sm:col-span-2">
+                            <label for="about-title" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">Название
+                                *</label>
+                            <input type="text" id="about-title" name="about[title]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                 focus:border-primary-500 focus:ring-primary-500 
+                                                 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                 dark:focus:border-primary-500 dark:focus:ring-primary-500"
+                                placeholder="Название розыгрыша" required />
+                        </div>
+                
+                        <!-- 📝 Описание (видно только в админке) -->
+                        <div class="sm:col-span-2">
+                            <label for="about-description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание
+                                *</label>
+                            <textarea id="about-description" name="about[description]" rows="1" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                 focus:ring-blue-500 focus:border-blue-500 
+                                                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Описание розыгрыша, отображается только в админке" required></textarea>
+                        </div>
+                
+                        <!-- 📢 Анонс (отправляется заранее) -->
+                        <div>
+                            <label for="about-annonce" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Анонс
+                                *</label>
+                            <textarea id="about-annonce" name="about[annonce]" rows="6" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                 focus:ring-blue-500 focus:border-blue-500 
+                                                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Сообщение-анонс (отправляется за 10 и 5 минут до начала)" required></textarea>
+                        </div>
+                
+                        <!-- 📨 Текст розыгрыша (рассылка во время регистрации) -->
+                        <div>
+                            <label for="about-text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Текст
+                                розыгрыша *</label>
+                            <textarea id="about-text" name="about[text]" rows="6" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                 focus:ring-blue-500 focus:border-blue-500 
+                                                 dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Сообщение, приглашающее участвовать (рассылается каждые 5 минут)" required></textarea>
+                        </div>
+
+                        <!-- 📝 Правила (отправляются в ЛС при регистрации) -->
+                        <div class="sm:col-span-2">
+                            <label for="about-rules" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Правила
+                                *</label>
+                            <textarea id="about-rules" name="about[rules]" rows="1" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                                         focus:ring-blue-500 focus:border-blue-500 
+                                                                         dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                                         dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Правила (отправляются в ЛС при регистрации)" required></textarea>
+                        </div>
+                
+                    </div>
+                
+                    <!-- ⚙️ Настройки розыгрыша -->
+                    <hr />
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Настройки</h2>
+                
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+                
+                        <!-- 👥 Количество участников -->
+                        <div>
+                            <label for="settings-participants" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                                Количество участников *
+                            </label>
+                            <input type="number" id="settings-participants" name="settings[participants]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                focus:border-primary-500 focus:ring-primary-500 
+                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" min="5" max="1000"
+                                maxlength="4" placeholder="100" required />
+                        </div>
+                
+                        <!-- 🧾 Тип подтверждения участия -->
+                        <div>
+                            <div class="mb-2 flex items-center gap-2">
+                                <label for="settings-confirm" class="block text-sm font-medium text-gray-900 dark:text-white">
+                                    Подтверждение *
+                                </label>
+                            </div>
+                            <select id="settings-confirm" name="settings[confirmation]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                focus:border-primary-500 focus:ring-primary-500 
+                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
+                                <option value="auto" disabled>Автоматическое</option>
+                                <option value="manual" selected>Ручное</option>
+                            </select>
+                        </div>
+                
+                        <!-- 🕑 Время начала розыгрыша -->
+                        <div>
+                            <label for="settings-start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Время
+                                начала: *</label>
+                            <div class="relative">
+                                <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
+                                    <!-- иконка часов -->
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <input type="time" id="settings-start-time" name="settings[start_time]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                                dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 
+                                                dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="00:00"
+                                    max="24:00" value="10:00" required />
+                            </div>
+                        </div>
+                
+                        <!-- 📅 Дата начала розыгрыша -->
+                        <div>
+                            <label for="settings-start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Дата
+                                начала: *</label>
+                            <div class="relative max-w-sm">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <!-- иконка календаря -->
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
+                                    </svg>
+                                </div>
+                                <input id="settings-start-date" name="settings[start_date]" datepicker datepicker-autohide
+                                    datepicker-format="dd.mm.yyyy" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg ps-10 p-2.5 
+                                                focus:ring-blue-500 focus:border-blue-500 block w-full 
+                                                dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Выберите дату"
+                                    required />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 🛰️ Платформа проведения розыгрыша -->
+                    <hr />
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Платформа</h2>
+                
+                    <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
+                        <!-- Выбор платформы (пока доступен только WhatsApp) -->
+                        <div>
+                            <div class="mb-2 flex items-center gap-2">
+                                <label for="raffle-platform" class="block text-sm font-medium text-gray-900 dark:text-white">
+                                    Платформа *
+                                </label>
+                            </div>
+                            <select id="raffle-platform" name="platform[type]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                 focus:border-primary-500 focus:ring-primary-500 
+                                                 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                 dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
+                                <option selected value="whatsapp">WhatsApp</option>
+                                <option value="telegram" disabled>Telegram</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <!-- 🏆 Призовые места -->
+                    <hr />
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Призовые места *</h2>
+                    
+                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-1">
+                        
+                        
+                        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                <caption
+                                    class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                                    <div class="sm:col-span-2">
+                                        <!-- Кнопка добавления призового места -->
+                                        <button type="button" id="add-prize-button"
+                                            class="flex w-full items-center justify-center gap-2 rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 
+                                                                                                         dark:border-gray-600 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white dark:focus:ring-gray-700">
+                                            <!-- Плюсик -->
+                                            <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                                stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+                                            </svg>
+                                            Добавить призовое место
+                                        </button>
+                                    </div>
+                                </caption>
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3">
+                                            Место
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Наименование
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Код
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="prize-list">
+                                    <!-- строки с призовыми местами -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 w-full space-y-6 sm:mt-8 lg:mt-0 lg:max-w-xs xl:max-w-md">
+                <div class="flow-root">
+                    <div class="-my-3 divide-y divide-gray-200 dark:divide-gray-800">
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Текстовая информация</dt>
+                            <dd id="summary-info" class="text-base font-medium text-gray-900 dark:text-white">не заполнено</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Участников</dt>
+                            <dd id="summary-participants" class="text-base font-medium text-gray-900 dark:text-white">не заполнено</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Подтверждение</dt>
+                            <dd id="summary-confirm" class="text-base font-medium text-gray-900 dark:text-white">ручное</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Начало в</dt>
+                            <dd id="summary-start" class="text-base font-medium text-gray-900 dark:text-white">не указано</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Платформа</dt>
+                            <dd id="summary-platform" class="text-base font-medium text-gray-900 dark:text-white">не указано</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-normal text-gray-500 dark:text-gray-400">Призовых мест</dt>
+                            <dd id="summary-prizes" class="text-base font-medium text-gray-900 dark:text-white">не указано</dd>
+                        </dl>
+
+                        <dl class="flex items-center justify-between gap-4 py-3">
+                            <dt class="text-base font-bold text-gray-900 dark:text-white">Общая заполненость</dt>
+                            <dd id="summary-percent" class="text-base font-bold text-gray-900 dark:text-white">0%</dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="space-y-3">
+                    <button type="submit" id="submit-btn"
+                        class="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                        Создать розыгрыш
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<script type="module" src="/js/modules/raffles/create.js?time={{ now.Unix }}"></script>

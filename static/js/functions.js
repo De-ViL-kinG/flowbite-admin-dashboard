@@ -3,7 +3,6 @@ function logout(){
     
     localStorage.removeItem('token')
     window.location.href = loginPath
-    showMessage('info', 'Выход выполнен. Перенаправляем на вход...')
 }
 
 const hash = '';

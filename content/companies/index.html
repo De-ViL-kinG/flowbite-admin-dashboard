@@ -5,7 +5,7 @@ layout: dashboard
 group: companies
 ---
 
-<div class="p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+<div class="p-4 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 min-h-[80vh] flex flex-col">
   <div class="mb-4">
     <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Компании</h1>
     <p class="text-sm text-gray-500 dark:text-gray-400">Управление компаниями</p>
@@ -20,14 +20,15 @@ group: companies
   </div>
 
   <!-- Таблица -->
-  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <div class="relative overflow-x-auto shadow-md sm:rounded-lg flex-1">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 h-full">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-            <th class="px-4 py-2">ID</th>
-            <th class="px-4 py-2">Название</th>
-            <th class="px-4 py-2">Описание</th>
-            <th class="px-4 py-2">Действия</th>
+          <th class="px-4 py-2">ID</th>
+          <th class="px-4 py-2">Название</th>
+          <th class="px-4 py-2">Описание</th>
+          <th class="px-4 py-2">WhatsApp</th>
+          <th class="px-4 py-2">Действия</th>
         </tr>
       </thead>
       <tbody id="company-list" class="bg-white divide-y dark:bg-gray-800 dark:divide-gray-700">
@@ -65,10 +66,22 @@ group: companies
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
               required></textarea>
           </div>
+          <div>
+            <label for="create-wpp-sessions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatsApp
+              сессия</label>
+            <select id="create-wpp-sessions" name="wppSession" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                       focus:border-primary-500 focus:ring-primary-500 
+                                                                       dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                       dark:focus:border-primary-500 dark:focus:ring-primary-500"
+              required>
+              <option selected disabled>Вибирите сессию</option>
+            </select>
+          </div>
           <button type="submit"
             class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Добавить
           </button>
+          
         </form>
       </div>
     </div>
@@ -86,15 +99,37 @@ group: companies
             <form id="edit-company-form" class="p-5 space-y-4">
                 <input type="hidden" id="edit-company-id">
                 <div>
-                    <label for="edit-company-name"
-                        class="block text-sm font-medium text-gray-700 dark:text-white">Название</label>
-                    <input id="edit-company-name" type="text" required class="input-class" />
+                  <label for="edit-company-name" class="block text-sm font-medium text-gray-700 dark:text-white">Название</label>
+                  <input id="edit-company-name" type="text" required disabled
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" />
                 </div>
-                <button type="submit" class="btn btn-primary w-full">Сохранить изменения</button>
+                <div>
+                  <label for="edit-company-desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Описание</label>
+                  <textarea id="edit-company-desc" name="description" rows="3"
+                    placeholder="Можно ввести информацию харрактеризующую компанию."
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                    required></textarea>
+                </div>
+                <div>
+                  <label for="edit-wpp-sessions" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">WhatsApp
+                    сессия</label>
+                  <select id="edit-wpp-sessions" name="wppSession"
+                    class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                                       focus:border-primary-500 focus:ring-primary-500 
+                                                                                       dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                                       dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
+                    <option selected disabled>Вибирите сессию</option>
+                  </select>
+                </div>
+                <button type="submit"
+                  class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                  Сохранить изменения
+                </button>
             </form>
         </div>
     </div>
 </div>
+
 
 <!-- Подключение JS -->
 <script type="module" src="/js/modules/companies/companies.js?time={{ now.Unix }}"></script>

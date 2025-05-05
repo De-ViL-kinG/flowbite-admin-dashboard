@@ -1,0 +1,67 @@
+<!-- Modal -->
+<div id="createUserModal" tabindex="-1" aria-hidden="true"
+    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black/50 backdrop-blur-sm">
+    <div class="relative p-4 w-full max-w-md max-h-full m-auto mt-20">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow dark:bg-gray-800">
+            <!-- Modal header -->
+            <div class="flex items-center justify-between p-4 border-b rounded-t dark:border-gray-600">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                    ➕ Добавить пользователя
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                    data-modal-hide="createUserModal">
+                    ✖
+                </button>
+            </div>
+
+            <!-- Modal body -->
+            <form id="create-user-form" class="p-4 space-y-4">
+                <div>
+                    <label for="email"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="email" name="email" id="user-email"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        required>
+                </div>
+
+                <div>
+                    <label for="full_name"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Имя</label>
+                    <input type="text" name="full_name" id="user-fullname"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+
+                <div>
+                    <label for="password"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Пароль</label>
+                    <input type="password" name="password" id="user-password"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        required>
+                </div>
+
+                <div>
+                    <label for="role" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Роль</label>
+                    <select id="user-role" name="role"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                        required>
+                        <option value="">Выберите роль</option>
+                        <option value="organizer">Организатор</option>
+                        <option value="companyadmin">Админ компании</option>
+                        <option value="superuser">Суперпользователь</option>
+                    </select>
+                </div>
+
+                <input type="hidden" name="company_id" id="user-company-id" value="">
+
+                <!-- Modal footer -->
+                <div class="flex justify-end pt-4 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button type="submit" class="btn btn-blue">
+                        💾 Сохранить
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

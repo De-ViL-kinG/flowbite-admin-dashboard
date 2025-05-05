@@ -196,7 +196,7 @@ document.getElementById('create-wpp-form')?.addEventListener('submit', async fun
 
   try {
     const token = localStorage.getItem('token')
-    const res = await fetch(`${APP.api}/wpp/sessions`, {
+    const res = await fetch(`${APP.api}/wpp/sessions/`, {
       headers: {
         'Authorization': `Bearer ${token}`,
         'Content-Type': 'application/json'
