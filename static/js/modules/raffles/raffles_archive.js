@@ -12,13 +12,11 @@ async function loadRaffles() {
 
         if (!container || !json.data) return
       
-        container.innerHTML = ""
-      
         const allowedStatuses = ["CREATED", "REGISTRED", "IN_PROGRESS", "REGISTRATION_ENDED"]
         const statusMap = APP.raffles.statusMap     
 
         const raffles = json.data
-          .filter(r => allowedStatuses.includes(r.status))
+          .filter(r => !allowedStatuses.includes(r.status))
           .sort((a, b) => new Date(a.settings.start_date + ' ' + a.settings.start_time) - new Date(b.settings.start_date + ' ' + b.settings.start_time))
       
         raffles.forEach(raffle => {
@@ -50,7 +48,6 @@ async function loadRaffles() {
       `
             container.appendChild(card)
         })
-      setTimeout(1000, loadRaffles)
     } catch (err) {
         console.error("Ошибка при загрузке розыгрышей", err)
         showMessage("danger", "Не удалось загрузить список розыгрышей")

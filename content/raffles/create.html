@@ -81,35 +81,7 @@ group: raffles
                     <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Настройки</h2>
                 
                     <div class="grid grid-cols-2 gap-4 sm:grid-cols-2">
-                
-                        <!-- 👥 Количество участников -->
-                        <div>
-                            <label for="settings-participants" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
-                                Количество участников *
-                            </label>
-                            <input type="number" id="settings-participants" name="settings[participants]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
-                                                focus:border-primary-500 focus:ring-primary-500 
-                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
-                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" min="5" max="1000"
-                                maxlength="4" placeholder="100" required />
-                        </div>
-                
-                        <!-- 🧾 Тип подтверждения участия -->
-                        <div>
-                            <div class="mb-2 flex items-center gap-2">
-                                <label for="settings-confirm" class="block text-sm font-medium text-gray-900 dark:text-white">
-                                    Подтверждение *
-                                </label>
-                            </div>
-                            <select id="settings-confirm" name="settings[confirmation]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
-                                                focus:border-primary-500 focus:ring-primary-500 
-                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
-                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
-                                <option value="auto" disabled>Автоматическое</option>
-                                <option value="manual" selected>Ручное</option>
-                            </select>
-                        </div>
-                
+
                         <!-- 🕑 Время начала розыгрыша -->
                         <div>
                             <label for="settings-start-time" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Время
@@ -117,21 +89,21 @@ group: raffles
                             <div class="relative">
                                 <div class="absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none">
                                     <!-- иконка часов -->
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path fill-rule="evenodd"
                                             d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z"
                                             clip-rule="evenodd" />
                                     </svg>
                                 </div>
                                 <input type="time" id="settings-start-time" name="settings[start_time]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                                                dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 
-                                                dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" min="00:00"
-                                    max="24:00" value="10:00" required />
+                                                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                                                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 
+                                                                        dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    min="00:00" max="24:00" value="10:00" required />
                             </div>
                         </div>
-                
+                        
                         <!-- 📅 Дата начала розыгрыша -->
                         <div>
                             <label for="settings-start-date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Дата
@@ -139,20 +111,101 @@ group: raffles
                             <div class="relative max-w-sm">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                     <!-- иконка календаря -->
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg"
-                                        fill="currentColor" viewBox="0 0 20 20">
+                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                        viewBox="0 0 20 20">
                                         <path
                                             d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                     </svg>
                                 </div>
                                 <input id="settings-start-date" name="settings[start_date]" datepicker datepicker-autohide
                                     datepicker-format="dd.mm.yyyy" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg ps-10 p-2.5 
-                                                focus:ring-blue-500 focus:border-blue-500 block w-full 
-                                                dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
-                                                dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Выберите дату"
-                                    required />
+                                                                        focus:ring-blue-500 focus:border-blue-500 block w-full 
+                                                                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder:text-gray-400 dark:text-white 
+                                                                        dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="Выберите дату" required />
                             </div>
                         </div>
+
+                        <!-- Начало пула номерков -->
+                        <div>
+                            <label for="instruction-pullstart" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                                Начало пула номерков *
+                            </label>
+                            <input type="number" id="instruction-pullstart" name="settings[instruction][number_pool_from]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                        focus:border-primary-500 focus:ring-primary-500 
+                                                                        dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                        dark:focus:border-primary-500 dark:focus:ring-primary-500" min="1"
+                                max="1000" maxlength="3" placeholder="10" required />
+                        </div>
+
+                        <!-- Конец пула номерков -->
+                        <div>
+                            <label for="instruction-pullend" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                                Конец пула номерков *
+                            </label>
+                            <input type="number" id="instruction-pullend" name="settings[instruction][number_pool_to]"
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                                                focus:border-primary-500 focus:ring-primary-500 
+                                                                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" min="2" max="1000" maxlength="4" placeholder="100" required />
+                        </div>
+                
+                        <!-- 👥 Количество участников -->
+                        <div>
+                            <label for="settings-participants" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                                Количество номерков для остановки регистрации *
+                            </label>
+                            <input type="number" id="settings-participants" name="settings[participants]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                focus:border-primary-500 focus:ring-primary-500 
+                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" min="5" max="1000"
+                                maxlength="3" placeholder="10" required />
+                        </div>
+                
+                        <!-- 🧾 Тип подтверждения участия -->
+                        <div>
+                            <div class="mb-2 flex items-center gap-2">
+                                <label for="instruction-auto_confirm" class="block text-sm font-medium text-gray-900 dark:text-white">
+                                    Подтверждение *
+                                </label>
+                            </div>
+                            <select id="instruction-auto_confirm" name="settings[instruction][auto_confirm]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                focus:border-primary-500 focus:ring-primary-500 
+                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
+                                <option value="1" disabled>Автоматическое</option>
+                                <option value="0" selected>Ручное</option>
+                            </select>
+                        </div>
+
+                        <!-- Повтор текста -->
+                        <div>
+                            <label for="instruction-repeat_text" class="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                                Как часто повторять текст в секундах *
+                            </label>
+                            <input type="number" id="instruction-repeat_text" name="settings[instruction][repeat_text]"
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                                                focus:border-primary-500 focus:ring-primary-500 
+                                                                                                dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                                                dark:focus:border-primary-500 dark:focus:ring-primary-500" min="60" max="1000" maxlength="4" placeholder="300" required />
+                        </div>
+
+                        <!-- 🧾 Возможность ручного выбора номерков -->
+                        <div>
+                            <div class="mb-2 flex items-center gap-2">
+                                <label for="instruction-allow_manual_selection" class="block text-sm font-medium text-gray-900 dark:text-white">
+                                    Возможность ручного выбора номерков *
+                                </label>
+                            </div>
+                            <select id="instruction-allow_manual_selection" name="settings[instruction][allow_manual_selection]" class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 
+                                                                        focus:border-primary-500 focus:ring-primary-500 
+                                                                        dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:placeholder:text-gray-400 
+                                                                        dark:focus:border-primary-500 dark:focus:ring-primary-500" required>
+                                <option value="0" >Запрещено</option>
+                                <option value="1" selected>Разрешено</option>
+                            </select>
+                        </div>
+                        
                     </div>
                     <!-- 🛰️ Платформа проведения розыгрыша -->
                     <hr />

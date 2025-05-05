@@ -125,7 +125,7 @@ function validateForm() {
     updateSummary("summary-participants", partOk ? participants.value : "не заполнено");
     filled += partOk ? 1 : 0;
 
-    const confirm = document.getElementById("settings-confirm");
+    const confirm = document.getElementById("instruction-auto_confirm");
     const confirmOk = confirm && confirm.value !== "";
     updateSummary("summary-confirm", confirmOk ? confirm.options[confirm.selectedIndex].text : "не указано");
     filled += confirmOk ? 1 : 0;
@@ -231,10 +231,14 @@ function collectFormData() {
     const text = document.getElementById("about-text")?.value.trim();
     const rules = document.getElementById("about-rules")?.value.trim();
     const participants = document.getElementById("settings-participants")?.value;
-    const confirmation = document.getElementById("settings-confirm")?.value;
     const startTime = document.getElementById("settings-start-time")?.value;
     const startDate = document.getElementById("settings-start-date")?.value;
     const platform = document.getElementById("raffle-platform")?.value;
+    const number_pool_from = document.getElementById("instruction-pullstart")?.value;
+    const number_pool_to = document.getElementById("instruction-pullend")?.value;
+    const auto_confirm = document.getElementById("instruction-auto_confirm")?.value;
+    const repeat_text = document.getElementById("instruction-repeat_text")?.value;
+    const allow_manual_selection = document.getElementById("instruction-allow_manual_selection")?.value;
 
     // Призовые места
     const prizeRows = document.querySelectorAll("#prize-list tr");
@@ -256,6 +260,14 @@ function collectFormData() {
         return null;
     }
 
+    const instructions = {
+        number_pool_from: Number(number_pool_from),
+        number_pool_to: Number(number_pool_to),
+        auto_confirm: auto_confirm == "1",
+        repeat_text: Number(repeat_text),
+        allow_manual_selection: allow_manual_selection == "1"
+    };
+
     return {
         about: {
             title,
@@ -267,11 +279,12 @@ function collectFormData() {
         platform: {
             type: platform
         },
+        participants: [],
         settings: {
             participants: Number(participants),
-            confirmation,
-            "start_date": startDate,
-            "start_time": startTime
+            start_date: startDate,
+            start_time: startTime,
+            instructions
         },
         prize
     };
