@@ -1,0 +1,278 @@
+---
+title: projectX - Розыгрыш
+description: Описание и действие по конкретному розыгрышу
+layout: dashboard
+group: raffles
+footer: true
+---
+
+<div class="grid grid-cols-1 px-4 pt-6 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
+    <div class="mb-4 col-span-full xl:mb-2">
+        <nav class="flex mb-5" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
+                <li class="inline-flex items-center">
+                    <a href="#"
+                        class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-500">
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        Главная
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20 7h-.7c.229-.467.349-.98.351-1.5a3.5 3.5 0 0 0-3.5-3.5c-1.717 0-3.215 1.2-4.331 2.481C10.4 2.842 8.949 2 7.5 2A3.5 3.5 0 0 0 4 5.5c.003.52.123 1.033.351 1.5H4a2 2 0 0 0-2 2v2a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V9a2 2 0 0 0-2-2Zm-9.942 0H7.5a1.5 1.5 0 0 1 0-3c.9 0 2 .754 3.092 2.122-.219.337-.392.635-.534.878Zm6.1 0h-3.742c.933-1.368 2.371-3 3.739-3a1.5 1.5 0 0 1 0 3h.003ZM13 14h-2v8h2v-8Zm-4 0H4v6a2 2 0 0 0 2 2h3v-8Zm6 0v8h3a2 2 0 0 0 2-2v-6h-5Z" />
+                        </svg>
+                        <a href="/raffles/"
+                            class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-primary-500">Розыгрыши</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
+                            aria-current="page">{{ Raffle.title }}</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">{{ Raffle.description }}</h1>
+    </div>
+</div>
+<div class="grid gap-4 px-4 pt-6 mb-4 md:grid-cols-2 xl:grid-cols-3">
+    <div
+        class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card header</h3>
+        </div>
+        <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card body</h3>
+        </div>
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card footer</h3>
+        </div>
+    </div>
+    <div
+        class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card header</h3>
+        </div>
+        <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card body</h3>
+        </div>
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card footer</h3>
+        </div>
+    </div>
+    <div
+        class="p-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card header</h3>
+        </div>
+        <div class="h-16 px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card body</h3>
+        </div>
+        <div class="px-4 py-2 text-gray-400 border border-gray-200 border-dashed rounded dark:border-gray-600">
+            <h3>Card footer</h3>
+        </div>
+    </div>
+</div>
+<div class="grid grid-cols-1 px-4 xl:grid-cols-3 xl:gap-4 dark:bg-gray-900">
+    <!-- Right Content -->
+    <div class="col-span-full xl:col-auto">
+       
+        <!-- 📝 Текст -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">📝 Текст</h3>
+            </div>
+            <div class="h-32 px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.text }}
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.text.actions }}
+            </div>
+        </div>
+        <!-- 💳 Правила -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">💳 Правила</h3>
+            </div>
+            <div class="h-32 px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.rulles }}
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.rulles.actions }}
+            </div>
+        </div>
+        <!-- 🎁 Призы -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>🎁 Призы</h3>
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+                    <li class="py-3 sm:py-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                🥇
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 truncate dark:text-white">
+                                    Jack Daniels 0.7 (США)
+                                </p>
+                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                    *посмотреть код получения*
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                ******
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-3 sm:py-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                🥈
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 truncate dark:text-white">
+                                    Jim Beam 0.7 (США)
+                                </p>
+                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                    *посмотреть код получения*
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                ******
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-3 sm:py-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                🥉
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 truncate dark:text-white">
+                                    Absolute 1.0 (Россия)
+                                </p>
+                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                    *посмотреть код получения*
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                ******
+                            </div>
+                        </div>
+                    </li>
+                    <li class="py-3 sm:py-4">
+                        <div class="flex items-center space-x-4">
+                            <div class="flex-shrink-0">
+                                4️⃣
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <p class="font-medium text-gray-900 truncate dark:text-white">
+                                    Barcle BLANCO 1.0 (Мексика)
+                                </p>
+                                <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                                    *посмотреть код получения*
+                                </p>
+                            </div>
+                            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+                                ******
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>Card footer</h3>
+            </div>
+        </div>
+        <!-- ⚙️ Настройки -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">⚙️ Настройки</h3>
+            </div>
+            <div class="h-32 px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.settings }}
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                {{ Raffle.settings.actions }}
+            </div>
+        </div>
+        
+    </div>
+    <div class="col-span-2">
+        <!-- 💬 Сессии участников -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>💬 Сессии участников</h3>
+            </div>
+            <div class="h-32 px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th class="px-4 py-2">Телефон</th>
+                            <th class="px-4 py-2">Статус</th>
+                            <th class="px-4 py-2">Время</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for session in raffle.sessions %}
+                        <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700">
+                            <td class="px-4 py-2">{{session.phone}}</td>
+                            <td class="px-4 py-2">{{session.state}}</td>
+                            <td class="px-4 py-2">{{session.created_at}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>Card footer</h3>
+            </div>
+        </div>
+        <!-- ✅ Подтверждённые участники -->
+        <div
+            class="p-4 mb-4 space-y-6 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>✅ Подтверждённые участники</h3>
+            </div>
+            <div class="h-32 px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-1">
+                    {% for p in raffle.participants %}
+                    <li>{{p.phone}} — <span class="font-mono">{{p.pull}}</span></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="px-4 py-2 text-gray-400 rounded dark:border-gray-600">
+                <h3>Card footer</h3>
+            </div>
+        </div>
+        
+    </div>
+</div>
