@@ -44,9 +44,11 @@ function renderRaffle(data) {
     renderPrizeList(data.prize)
     renderSettings(data.settings)
 
+    document.getElementById("raffle-time").innerHTML = formatEventTime(data.settings.start_date, data.settings.start_time, data.raffled_at ?? null)
+
     // Участники
     const confirmed = document.querySelector("#raffle-participants")
-    document.getElementById("raffle-participants-num").textContent = data.participants.length || "—"
+    document.getElementById("raffle-participants-num").textContent = countSelectedNumbers(data.participants) || "—"
     document.getElementById("raffle-status").innerHTML = renderStatusBadge(data.status || "undefined")
 
     if (Array.isArray(data.participants)) {
@@ -91,7 +93,7 @@ function renderRaffle(data) {
     const sessionBody = document.querySelector("#raffle-sessions")
     if (Array.isArray(data.sessions)) {
         sessionBody.innerHTML = data.sessions.map(s => {
-            
+            if (s.state == "finished") return;
             const upd_time = formatDateTimeUtc12(s.updated_at)
 
             return `
@@ -140,7 +142,7 @@ function renderPrizeList(prizes = []) {
                 <div class="flex-shrink-0 text-2xl">${placeToEmoji(p.place)}</div>
                 <div class="flex-1 min-w-0">
                     <p class="font-medium text-gray-900 truncate dark:text-white">${p.title}</p>
-                    <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                    <p class="text-sm text-gray-500 truncate dark:text-gray-400" style="display:${p.winner?"block":"none"};">
                         Победитель: <a href="//wa.me/${p.winner?.phone}" target="_blank">+${p.winner?.phone}</a> (${p.winner?.number})
                     </p>
                 </div>
@@ -220,6 +222,8 @@ function renderSettings(settings = {}) {
 
     document.getElementById("raffle-start-date").innerHTML = settings.start_date
     document.getElementById("raffle-start-time").innerHTML = settings.start_time
+
+    
   
 
     const instr = settings.instructions || {}
@@ -233,3 +237,48 @@ function renderSettings(settings = {}) {
     document.getElementById("raffle-set-participants").textContent = settings.participants || "—"
 }
 
+function countSelectedNumbers(participants) {
+    if (!Array.isArray(participants)) return 0;
+
+    return participants.reduce((acc, p) => {
+        if (typeof p.pull === "string" && p.pull.trim() !== "") {
+            return acc + p.pull.split(",").filter(x => x.trim() !== "").length;
+        }
+        return acc;
+    }, 0);
+}
+
+function formatEventTime(startDate, startTime, raffledAt = null) {
+    if (!startDate || !startTime) return "-";
+
+    const [d, m, y] = startDate.split(".").map(Number);
+    const [h, min] = startTime.split(":").map(Number);
+    const start = new Date(Date.UTC(y, m - 1, d, h - 12, min)); // UTC+12 смещение
+
+    const now = new Date();
+
+    if (raffledAt) {
+        const finished = new Date(raffledAt);
+        const diff = Math.max(0, finished - start);
+        return "Длился " + formatDuration(diff);
+    }
+
+    if (now < start) {
+        const diff = start - now;
+        return "До старта " + formatDuration(diff);
+    }
+
+    const diff = now - start;
+    return "Идёт " + formatDuration(diff);
+}
+
+function formatDuration(ms) {
+    const totalSeconds = Math.floor(ms / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    if (hours > 0) {
+        return `${hours} ч ${minutes} мин`;
+    }
+    return `${minutes} мин`;
+}
